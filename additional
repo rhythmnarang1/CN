@@ -1,0 +1,40 @@
+DECLARE 
+ 
+BEGIN 
+IF TO_CHAR(SYSDATE,'HH24')<12 THEN 
+ 	dbms_output.Put_line('good morning'); 
+ELSIF TO_CHAR(SYSDATE,'HH24')<17 THEN 
+	dbms_output.Put_line('good afternoon'); 
+ELSE 
+	dbms_output.Put_line('GOOD NIGHT'); 
+END IF; 
+END; 
+
+
+DECLARE 
+F NUMBER:=5; 
+G NUMBER:=1; 
+A INT; 
+T CHAR(1):='+'; 
+BEGIN 
+CASE T 
+	WHEN '+' THEN 
+	A:=F+G; 
+	WHEN '-' THEN 
+	A:=F-G; 
+	WHEN '*' THEN 
+	A:=F*G; 
+	WHEN '/' THEN 
+ 	A:=F/G; 
+END CASE; 
+dbms_output.Put_line(A); 
+END; 
+
+
+
+
+insert into train values(1266, to_date('02/02/2024','DD/MM//YYYY'),timestamp('2024-02-02 11:03:15'),timestamp('2024-02-02 11:04:50')
+
+
+select * from employee where to_char(day_pf_joining, 'MM')=to_char(sysdate,'MM');
+
