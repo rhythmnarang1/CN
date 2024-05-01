@@ -1,0 +1,52 @@
+declare
+cursor c is select * from student where age<25;
+rec c%rowtype;
+begin
+for rec in c loop
+insert into studentMinor values (rec.roll, rec.name, rec.age, rec.mark1, rec.total);
+delete from studentwhere roll=rec.roll;
+end loop;
+end;
+
+
+declare 
+cursor c is select mark1+ mark2 as t from student;
+rec c%rowtype;
+begin 
+for rec in c loop
+update student set total=recrec.t where roll=rec.roll;
+end loop;
+end;
+
+
+declare 
+cursor c is select * from student where total>20; 
+rec c%rowtype; 
+begin 
+for rec in c loop  
+dbms_output.put_line(rec.roll); 
+end loop; 
+end; 
+
+
+
+declare 
+a number; 
+function fun(n in int) return number is 
+cursor c is select * from emp order by salary desc; 
+rec c%rowtype; 
+i number:=0; 
+ 
+begin 
+for rec in c loop 
+dbms_output.put_line(rec.empno || rec.ename); 
+i:=i+1; 
+if i=n then 
+	return 1; 
+end if; 
+end loop; 
+ 
+end; 
+begin 
+a:=fun(2); 
+end; 
