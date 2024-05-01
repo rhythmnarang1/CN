@@ -1,0 +1,61 @@
+Router 1
+Configure terminal
+Ip add 192.168.1.100 255.255.255.0
+No shutdown
+Exit 
+
+Ip dhcp pool summit
+Network 192.168.1.0 255.255.255.0
+Default-router 192.168.10.100
+Dns -server 72.1.2.3
+Exit
+Exit 
+
+PC1
+Ip dhcp
+
+Router 1
+Show ip dhcp binding
+
+
+
+
+Router 2 
+Configure terminal
+Int f0/0
+Ip add 192.168.2.100 255.255.255.0
+No shutdown
+Int f0/1
+Ip address 192.168.3.2 255.255.255.0
+No shut
+exit
+
+Exit 
+
+Config t
+Ip route 192.168.1.0 255.255.255.0 192.168.3.1
+exit
+
+Show ip route
+
+ROuter 1
+
+Config t
+Int f0/1
+Ip address 192.168.3.1 255.255.255.0
+No shut
+Exit exit
+
+Config t
+Ip route 192.168.2.0 255.255.255.0 192.168.3.2
+Exit
+Show ip route
+
+
+
+Pc2
+
+ ip 192.168.2.1 255.255.255.0 192.168.2.100
+ Ping 192.168.1.1 
+
+
